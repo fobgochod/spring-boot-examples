@@ -5,9 +5,10 @@ import com.fobgochod.domain.UserVO;
 import java.util.List;
 
 /**
- * @auther: Xiao
- * @date: 2019/5/19 13:08
- * @description: 功能描述
+ * 功能描述
+ *
+ * @author seven
+ * @date 2019/5/20
  */
 public interface LdapService {
 

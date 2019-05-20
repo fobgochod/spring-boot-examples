@@ -2,9 +2,7 @@ package com.fobgochod.api;
 
 import com.fobgochod.domain.UserVO;
 import com.fobgochod.entity.User;
-import com.fobgochod.repository.PersonRepository;
 import com.fobgochod.service.LdapService;
-import com.fobgochod.service.TraditionalLdapService;
 import com.fobgochod.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,15 +24,11 @@ public class UserController {
     @Resource
     UserService userService;
     @Autowired
-    private PersonRepository repository;
-    @Autowired
     private LdapService ldapService;
-    @Autowired
-    private TraditionalLdapService traditionalLdapService;
 
     @RequestMapping("/list")
     public String list(Model model) {
-        List<User> users = userService.getUserList();
+        List<User> users = userService.getUsers();
         model.addAttribute("users", users);
         return "user/list";
     }
@@ -46,7 +40,7 @@ public class UserController {
 
     @RequestMapping("/add")
     public String add(User user) {
-        UserVO adUser  = ldapService.getUser(user.getId());
+        UserVO adUser = ldapService.getUser(user.getId());
         user.setSid(0);
         user.setId(adUser.getUserId());
         user.setName(adUser.getUserName());
@@ -57,14 +51,14 @@ public class UserController {
 
     @RequestMapping("/toEdit")
     public String toEdit(Model model, Long sid) {
-        User user = userService.findUserById(sid);
+        User user = userService.findBySid(sid);
         model.addAttribute("user", user);
         return "user/userEdit";
     }
 
     @RequestMapping("/edit")
     public String edit(User user) {
-        userService.edit(user);
+        userService.update(user);
         return "redirect:/list";
     }
 

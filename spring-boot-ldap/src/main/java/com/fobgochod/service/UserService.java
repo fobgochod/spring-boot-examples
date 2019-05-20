@@ -1,21 +1,20 @@
 package com.fobgochod.service;
 
-
 import com.fobgochod.entity.User;
 
 import java.util.List;
 
 public interface UserService {
 
-    public List<User> getUserList();
+    List<User> getUsers();
 
-    public User findUserById(long sid);
+    User findBySid(long sid);
 
-    public void save(User user);
+    void save(User user);
 
-    public void edit(User user);
+    void update(User user);
 
-    public void delete(long sid);
+    void delete(long sid);
 
 
 }

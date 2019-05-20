@@ -2,8 +2,8 @@ package com.fobgochod.api;
 
 import com.fobgochod.entity.User;
 import com.fobgochod.service.LdapService;
-import com.fobgochod.service.TraditionalLdapService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,9 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController {
 
     @Autowired
+    @Qualifier("traditionalLdapService")
     LdapService ldapService;
-    @Autowired
-    TraditionalLdapService traditionalLdapService;
 
     @RequestMapping({"/", "index"})
     public String index() {

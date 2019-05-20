@@ -22,12 +22,12 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public List<User> getUserList() {
+    public List<User> getUsers() {
         return userRepository.findAll();
     }
 
     @Override
-    public User findUserById(long sid) {
+    public User findBySid(long sid) {
         Optional<User> optional = userRepository.findById(sid);
         if (optional.isPresent()) {
             return optional.get();
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void edit(User user) {
+    public void update(User user) {
         userRepository.save(user);
     }
 

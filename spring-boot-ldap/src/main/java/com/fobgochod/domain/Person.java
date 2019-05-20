@@ -11,9 +11,16 @@ public class Person {
 
     @Id
     private Name dn;
-
+    @Attribute(name = "sAMAccountName")
+    private String userId;
+    @Attribute(name = "name")
+    private String userName;
+    @Attribute(name = "userPassword")
+    private String password;
     @Attribute(name = "mobile")
-    private String phone;
+    private String telephone;
+    @Attribute(name = "mail")
+    private String email;
 
     public Name getDn() {
         return dn;
@@ -23,17 +30,43 @@ public class Person {
         this.dn = dn;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    @Override
-    public String toString() {
-        return String.format("Customer[dn=%s, phone='%s']", this.dn, this.phone);
+    public String getUserName() {
+        return userName;
     }
 
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

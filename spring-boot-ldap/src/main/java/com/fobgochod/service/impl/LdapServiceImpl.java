@@ -8,6 +8,7 @@ import org.springframework.ldap.core.LdapTemplate;
 import org.springframework.ldap.filter.EqualsFilter;
 import org.springframework.ldap.query.LdapQuery;
 import org.springframework.ldap.query.LdapQueryBuilder;
+import org.springframework.ldap.query.SearchScope;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
  * @author seven
  * @date 2019/5/19
  */
-@Service
+@Service("ldapService")
 public class LdapServiceImpl implements LdapService {
 
     @Autowired
@@ -34,13 +35,14 @@ public class LdapServiceImpl implements LdapService {
     @Override
     public UserVO getUser(String userId) {
         LdapQuery ldapQuery = LdapQueryBuilder.query()
+                .searchScope(SearchScope.SUBTREE)
                 .attributes("sAMAccountName", "name", "userPassword", "mobile", "mail")
                 .where("objectClass").is("user")
                 .and("objectCategory").is("person")
                 .and("sAMAccountName").is(userId);
         ldapTemplate.setIgnorePartialResultException(true);
-        List<UserVO> users = ldapTemplate.search(ldapQuery, new UserAttributesMapper());
-        return users.get(0);
+        UserVO user = ldapTemplate.findOne(ldapQuery, UserVO.class);
+        return user;
     }
 
     @Override

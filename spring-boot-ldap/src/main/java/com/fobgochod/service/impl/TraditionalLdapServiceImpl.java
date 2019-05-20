@@ -2,7 +2,7 @@ package com.fobgochod.service.impl;
 
 import com.fobgochod.domain.UserVO;
 import com.fobgochod.mapper.UserAttributesMapper;
-import com.fobgochod.service.TraditionalLdapService;
+import com.fobgochod.service.LdapService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +28,10 @@ import java.util.List;
  * @author seven
  * @date 2019/5/19
  */
-@Service
-public class TraditionalLdapServiceImpl implements TraditionalLdapService {
+@Service("traditionalLdapService")
+public class TraditionalLdapServiceImpl implements LdapService {
 
     private static final Logger logger = LoggerFactory.getLogger(TraditionalLdapServiceImpl.class);
-
     @Autowired
     UserAttributesMapper userAttributesMapper;
     @Value("${spring.ldap.urls}")
@@ -57,27 +56,27 @@ public class TraditionalLdapServiceImpl implements TraditionalLdapService {
 
     @Override
     public UserVO getUser(String userId) {
-        String searchFilter = String.format("(&(sAMAccountName=%s)(objectCategory=person)(objectClass=user))", userId);
+        String filter = String.format("(&(sAMAccountName=%s)(objectCategory=person)(objectClass=user))", userId);
         DirContext ctx = getDirContext();
-        List<UserVO> list = searchResult(ctx, searchFilter);
+        List<UserVO> list = search(ctx, filter);
         return list.get(0);
     }
 
     @Override
     public List<UserVO> getUsers() {
-        String searchFilter = "(&(objectCategory=person)(objectClass=top))";
+        String filter = "(&(objectCategory=person)(objectClass=top))";
         DirContext ctx = getDirContext();
-        List<UserVO> list = searchResult(ctx, searchFilter);
+        List<UserVO> list = search(ctx, filter);
         return list;
     }
 
-    private List<UserVO> searchResult(DirContext ctx, String searchFilter) {
+    private List<UserVO> search(DirContext ctx, String filter) {
         List<UserVO> list = new ArrayList<>();
         NamingEnumeration<SearchResult> results = null;
         try {
             SearchControls controls = new SearchControls();
             controls.setSearchScope(SearchControls.SUBTREE_SCOPE);
-            results = ctx.search("", searchFilter, controls);
+            results = ctx.search("", filter, controls);
             while (results.hasMoreElements()) {
                 SearchResult searchResult = results.next();
                 Attributes attributes = searchResult.getAttributes();
