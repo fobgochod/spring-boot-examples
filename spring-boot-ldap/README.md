@@ -21,6 +21,17 @@
 | dn | Distiguished Name | 唯一标识名 | 
 | uid | User ID | 用户标识 | 
 
+<table>
+<tr><th>简称</th><th>全称</th><th>用途</th></tr>
+<tr><td>o</td><td>Organizaiton</td><td>组织/公司</td></tr>
+<tr><td>ou</td><td>Organizaiton Unit</td><td>组织单元</td></tr>
+<tr><td>c</td><td>Country</td><td>国家</td></tr>
+<tr><td>dc</td><td>Domain Component</td><td>域名</td></tr>
+<tr><td>sn</td><td>Suer Name</td><td>真实名称</td></tr>
+<tr><td>cn</td><td>Common Name</td><td>常用名称</td></tr>
+<tr><td>dn</td><td>Distiguished Name</td><td>唯一标识名</td></tr>
+<tr><td>uid</td><td>User ID</td><td>用户标识</td></tr>
+</table>
 
 ### AD域与LDAP的区别
 &emsp;&emsp;Windows AD(Active Directory)域应该是LDAP的一个应用实例，而不应该是LDAP本身。Windows AD域的用户、权限管理应该是微软公司使用LDAP存储了一些数据来解决域控这个具体问题，AD域提供了相关的用户接口，我们可以把AD域当做微软定制的LDAP服务器。Active Directory先实现一个LDAP服务器，然后自己先用这个LDAP服务器实现了自己的一个具体应用。
