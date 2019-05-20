@@ -8,20 +8,19 @@
 
 &emsp;&emsp;LDAP的信息是以树型结构存储的，在树根一般定义国家(c=CN)或域名(dc=com)，在其下则往往定义一个或多个组织 (organization)(o=Acme)或组织单元(organizational units) (ou=People)。一个组织单元可能包含诸如所有雇员、大楼内的所有打印机等信息。此外，LDAP支持对条目能够和必须支持哪些属性进行控制，这是有一个特殊的称为对象类别(objectClass)的属性来实现的。该属性的值决定了该条目必须遵循的一些规则，其规定了该条目能够及至少应该包含哪些属性。例如：inetorgPerson对象类需要支持sn(surname)和cn(common name)属性，但也可以包含可选的如邮件，电话号码等属性。
 
-
 ### LDAP 名词解释
 
 | 简称 | 全称 | 用途 |
 | :--- : | :---: | :---: |
 | o | Organizaiton | 组织/公司 |
-| ou | Organizaiton Unit |组织单元 /
+| ou | Organizaiton Unit | 组织单元 |
 | c | Country | 国家 |
-| dc | Domain Component | 域名 /
+| dc | Domain Component | 域名 |
 | sn | Suer Name | 真实名称 | 
 | cn | Common Name | 常用名称 | 
 | dn | Distiguished Name | 唯一标识名 | 
 | uid | User ID | 用户标识 | 
- 
+
 
 ### AD域与LDAP的区别
 &emsp;&emsp;Windows AD(Active Directory)域应该是LDAP的一个应用实例，而不应该是LDAP本身。Windows AD域的用户、权限管理应该是微软公司使用LDAP存储了一些数据来解决域控这个具体问题，AD域提供了相关的用户接口，我们可以把AD域当做微软定制的LDAP服务器。Active Directory先实现一个LDAP服务器，然后自己先用这个LDAP服务器实现了自己的一个具体应用。
