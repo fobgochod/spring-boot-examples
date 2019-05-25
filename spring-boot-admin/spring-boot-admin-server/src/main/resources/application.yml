@@ -1,0 +1,13 @@
+server:
+  port: 8090
+logging:
+  file: .logs/admin.log
+spring:
+  boot:
+    admin:
+      ui:
+        title: "Spring Boot Admin"
+  security:
+    user:
+      name: admin
+      password: admin

@@ -1,0 +1,37 @@
+server:
+  port: 8081
+logging:
+  file: .logs/client.log
+spring:
+  profiles:
+    active: dev
+  application:
+    name: "Spring Boot Admin Client"
+  security:
+    user:
+      name: client
+      password: client
+  boot:
+    admin:
+      client:
+        url: http://localhost:8090
+        username: admin
+        password: admin
+        instance:
+          prefer-ip: true
+          metadata:
+            user.name: ${spring.security.user.name}
+            user.password: ${spring.security.user.password}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: configprops
+  endpoint:
+    health:
+      show-details: ALWAYS
+info:
+  groupId: com.fobgocod
+  artifactId: spring-boot-admin-client
+  version: 1.0.0
