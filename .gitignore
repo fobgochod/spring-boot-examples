@@ -1,5 +1,4 @@
-spring-boot-admin/.logs/
+!*.exe
 .idea/
-spring-boot-admin/spring-boot-admin-client/target/
-spring-boot-admin/spring-boot-admin-server/target/
-spring-boot-ldap/target/
+.logs/
+target/
