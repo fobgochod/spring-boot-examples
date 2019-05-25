@@ -10,17 +10,6 @@
 
 ### LDAP 名词解释
 
-| 简称 | 全称 | 用途 |
-| :--- : | :---: | :---: |
-| o | Organizaiton | 组织/公司 |
-| ou | Organizaiton Unit | 组织单元 |
-| c | Country | 国家 |
-| dc | Domain Component | 域名 |
-| sn | Suer Name | 真实名称 | 
-| cn | Common Name | 常用名称 | 
-| dn | Distiguished Name | 唯一标识名 | 
-| uid | User ID | 用户标识 | 
-
 <table>
 <tr><th>简称</th><th>全称</th><th>用途</th></tr>
 <tr><td>o</td><td>Organizaiton</td><td>组织/公司</td></tr>
