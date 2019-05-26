@@ -1,7 +1,7 @@
 server:
-  port: 8090
+  port: 22220
 logging:
-  file: .logs/admin.log
+  file: .logs/admin-server.log
 spring:
   boot:
     admin:
