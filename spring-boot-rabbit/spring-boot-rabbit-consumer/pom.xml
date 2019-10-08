@@ -16,4 +16,8 @@
     <description>Spring Boot Rabbit Consumer</description>
     <packaging>jar</packaging>
 
+    <properties>
+        <timestamp>${maven.build.timestamp}</timestamp>
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+    </properties>
 </project>

@@ -1,4 +1,4 @@
-package com.fobgochod.order;
+package com.fobgochod.consumer;
 
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;
@@ -9,15 +9,15 @@ import org.springframework.messaging.MessageChannel;
  * @author seven
  * @date 2019/5/26
  */
-public interface OrderBinder {
+public interface SourceChannel {
 
-    String OUTPUT_ORDER = "orderMessageChannel";
+    String OUTPUT = "outputChannel";
 
     /**
      * 发送消息
      *
      * @return
      */
-    @Output(OUTPUT_ORDER)
-    MessageChannel messageOutput();
+    @Output(OUTPUT)
+    MessageChannel output();
 }

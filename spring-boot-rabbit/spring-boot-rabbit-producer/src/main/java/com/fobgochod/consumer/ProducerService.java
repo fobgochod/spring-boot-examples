@@ -1,4 +1,4 @@
-package com.fobgochod.order;
+package com.fobgochod.consumer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;
@@ -15,11 +15,11 @@ import org.springframework.stereotype.Component;
  * @date 2019/5/26
  */
 @Component
-@EnableBinding(OrderBinder.class)
-public class OrderMessageProvider {
+@EnableBinding(SourceChannel.class)
+public class ProducerService {
 
     @Autowired
-    @Output(OrderBinder.OUTPUT_ORDER)
+    @Output(SourceChannel.OUTPUT)
     private MessageChannel channel;
 
     /**

@@ -10,10 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.fobgocod</groupId>
-    <artifactId>spring-boot-rabbit-provider</artifactId>
+    <artifactId>spring-boot-rabbit-producer</artifactId>
     <version>1.0.0</version>
-    <name>spring-boot-rabbit-provider</name>
-    <description>Spring Boot Rabbit Provider</description>
+    <name>spring-boot-rabbit-producer</name>
+    <description>Spring Boot Rabbit Producer</description>
     <packaging>jar</packaging>
 
+    <properties>
+        <timestamp>${maven.build.timestamp}</timestamp>
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+    </properties>
 </project>

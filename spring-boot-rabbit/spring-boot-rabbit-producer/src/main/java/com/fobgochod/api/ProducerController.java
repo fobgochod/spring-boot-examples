@@ -1,6 +1,6 @@
 package com.fobgochod.api;
 
-import com.fobgochod.order.OrderMessageProvider;
+import com.fobgochod.consumer.ProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,15 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2019/3/18
  */
 @RestController
-@RequestMapping(value = {"/api/order"})
-public class OrderController {
+@RequestMapping(value = {"/api/producer"})
+public class ProducerController {
 
     @Autowired
-    OrderMessageProvider orderMessageProvider;
+    ProducerService producerService;
 
     @RequestMapping(value = "/{message}", method = RequestMethod.GET)
     public ResponseEntity<?> health(@PathVariable String message) {
-        orderMessageProvider.send(message);
+        producerService.send(message);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 

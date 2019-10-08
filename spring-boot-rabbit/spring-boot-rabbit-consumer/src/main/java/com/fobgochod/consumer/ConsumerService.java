@@ -1,4 +1,4 @@
-package com.fobgochod.order;
+package com.fobgochod.consumer;
 
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
@@ -14,15 +14,15 @@ import java.util.Date;
  * @date 2019/5/27
  */
 @Component
-@EnableBinding(OrderBinder.class)
-public class OrderMessageConsumer {
+@EnableBinding(SinkChannel.class)
+public class ConsumerService {
 
     /**
-     * 消费ECM的货柜模板变更
+     * 消费消息
      *
      * @param message
      */
-    @StreamListener(OrderBinder.INPUT_ORDER)
+    @StreamListener(SinkChannel.INPUT)
     public void receive(Message<String> message) {
         try {
             String payload = message.getPayload();
