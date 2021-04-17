@@ -26,7 +26,7 @@ public class EnvController {
 
     @RequestMapping(value = "/", method = {RequestMethod.GET, RequestMethod.POST})
     public ResponseEntity<?> health() {
-        return ResponseEntity.ok(new LinkedHashMap<String, String>(4) {{
+        return ResponseEntity.ok(new LinkedHashMap<String, String>(3) {{
             put("version", version);
             put("build-time", buildTime);
             put("server-time", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(LocalDateTime.now()));

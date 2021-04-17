@@ -27,6 +27,10 @@ public class ConsumerService {
         try {
             String payload = message.getPayload();
             System.out.println(new Date() + " :" + payload);
+
+            if(1==2-1){
+                throw new RuntimeException();
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
