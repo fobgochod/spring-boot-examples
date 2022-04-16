@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: route1
+          uri: http://172.16.2.141:32511
+          predicates:
+            - Path=/dev/**
+          filters:
+            - StripPrefix=1
+server:
+  port: 80

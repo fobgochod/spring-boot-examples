@@ -3,27 +3,32 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.5.RELEASE</version>
-        <relativePath/>
+        <groupId>com.fobgochod</groupId>
+        <artifactId>spring-boot-examples</artifactId>
+        <version>${revision}</version>
     </parent>
+    <artifactId>spring-boot-admin</artifactId>
+    <packaging>pom</packaging>
+    <name>${project.artifactId}</name>
+    <description>Spring Boot Admin</description>
 
     <modules>
         <module>spring-boot-admin-server</module>
         <module>spring-boot-admin-client</module>
     </modules>
 
-    <groupId>com.fobgocod</groupId>
-    <artifactId>spring-boot-admin</artifactId>
-    <version>1.0.0</version>
-    <name>spring-boot-admin</name>
-    <description>Spring Boot Admin</description>
-    <packaging>pom</packaging>
-
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring Boot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -55,14 +60,5 @@
             <artifactId>spring-boot-starter-jetty</artifactId>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

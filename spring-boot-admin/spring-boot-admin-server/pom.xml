@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.fobgocod</groupId>
         <artifactId>spring-boot-admin</artifactId>
-        <version>1.0.0</version>
+        <groupId>com.fobgochod</groupId>
+        <version>${revision}</version>
     </parent>
-
-    <groupId>com.fobgocod</groupId>
     <artifactId>spring-boot-admin-server</artifactId>
-    <version>1.0.0</version>
-    <name>spring-boot-admin-server</name>
-    <description>Spring Boot Admin Server</description>
     <packaging>jar</packaging>
-
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
+    <name>${project.artifactId}</name>
+    <description>Spring Boot Admin Server</description>
 
     <dependencies>
         <dependency>
@@ -26,14 +20,5 @@
             <version>2.1.3</version>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

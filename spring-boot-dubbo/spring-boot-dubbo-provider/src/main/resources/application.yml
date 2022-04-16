@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+dubbo:
+  application:
+    name: dubbo-provider
+  registry:
+    address: redis://172.16.2.141:6379
+#    address: zookeeper://172.16.2.141:2181?backup=172.16.2.96:2181,172.16.2.97:2181,172.16.2.214:2181
+  protocol:
+    name: dubbo
+    port: 20880
+  scan:
+    base-packages: com.fobgochod.service
+
+demo:
+  service:
+    version: 1.0.0
