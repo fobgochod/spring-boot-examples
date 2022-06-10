@@ -13,7 +13,7 @@
     <name>${project.artifactId}</name>
     <description>Spring Boot Dubbo</description>
     <properties>
-        <dubbo.version>2.6.5</dubbo.version>
+        <dubbo.version>2.6.12</dubbo.version>
     </properties>
 
     <modules>
